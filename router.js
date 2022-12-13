@@ -50,13 +50,11 @@ const router = (req, res) => {
   } else if (endpoint === "/search") {
     let result = [];
     const toSearch = query.split("=")[1].trim();
-
     if (toSearch.length) {
       result = mockData.filter((e) =>
         e.carName.toLowerCase().startsWith(toSearch.toLowerCase(), 0)
       );
     }
-
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify(result));
   } else {
