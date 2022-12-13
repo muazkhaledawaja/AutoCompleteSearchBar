@@ -3,7 +3,7 @@ const listData = document.querySelector("#dataList");
 
 const showResults = (data) => {
   if (data.length > 0) {
-    data.forEach((e) => {
+    data.map((e) => {
       listData.innerHTML += `<option value="${e.carName}">`;
     });
     return;
