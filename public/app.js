@@ -1,7 +1,4 @@
-const searchArea = document.querySelector(".search-area");
 const Input = document.querySelector("#custom-input");
-const autoCompleteBox = document.querySelector(".auto-box");
-const Result  = document.querySelector("results-container");
 const listData = document.querySelector("#dataList");
 
 const showResults = (data) => {
