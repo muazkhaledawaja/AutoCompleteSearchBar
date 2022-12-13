@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 //convert JSON file to readable oject
-const mockData = JSON.parse(fs.readFileSync("public/words.json"));
+const mockData = JSON.parse(fs.readFileSync("public/mockData.json"));
  
 
 const router = (req, res) => {
@@ -53,7 +53,7 @@ const router = (req, res) => {
 
     if (toSearch.length) {
       result = mockData.filter((e) =>
-        e.first_name.toLowerCase().startsWith(toSearch.toLowerCase(), 0)
+        e.carName.toLowerCase().startsWith(toSearch.toLowerCase(), 0)
       );
     }
 

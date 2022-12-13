@@ -8,7 +8,7 @@ const showResults = (data) => {
   if (data.length > 0) {
     listData.innerHTML = ``;
     data.forEach((e) => {
-      listData.innerHTML += `<option value="${e.first_name}">`;
+      listData.innerHTML += `<option value="${e.carName}">`;
     });
     return;
   }
