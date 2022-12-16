@@ -1,10 +1,10 @@
 const fs = require("fs");
 const path = require("path");
+ 
 
 //convert JSON file to readable oject
 const mockData = JSON.parse(fs.readFileSync("public/mockData.json"));
  
-
 const router = (req, res) => {
   const arr = req.url.split("?");
   const endpoint = arr[0];
@@ -21,8 +21,23 @@ const router = (req, res) => {
         res.writeHead(200, { "Content-Type": "text/html" });
         res.end(file);
       }
-    });
+    })
+
+
     // CSS route
+  }
+  else if (endpoint === "/mockData.json") {
+    const filePath = path.join(__dirname, "public", "mockData.json");
+    fs.readFile(filePath, (error, file) => {
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(file);
+      }
+    });
+    // JS route
   } else if (endpoint === "/main.css") {
     const filePath = path.join(__dirname, "public", "main.css");
     fs.readFile(filePath, (error, file) => {
@@ -42,7 +57,8 @@ const router = (req, res) => {
         console.log(error);
         return;
       } else {
-        res.writeHead(200, { "Content-Type": "text/js" });
+        res.writeHead(200, { "Content-Type": "application/javascript" });
+       
         res.end(file);
       }
     });

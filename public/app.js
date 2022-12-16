@@ -1,6 +1,8 @@
 const Input = document.querySelector("#custom-input");
 const listData = document.querySelector("#dataList");
-
+                           
+import mockdata from './mockData.json' assert { type: "json" };
+localStorage.setItem('mockdata',JSON.stringify({ mockdata}))
 const showResults = (data) => {
   if (data.length > 0) {
     data.map((e) => {
@@ -19,4 +21,8 @@ const searchQuery = () => {
     .catch((err) => console.log(err));
 };
 
+
+ 
 Input.oninput = searchQuery;
+ 
+ 
